@@ -93,5 +93,5 @@ Given observed data, O, and expected data (fit), E
 
 # Limitations
 * It can be slow and memory intensive to load all the data from the plain-text file if it is large
-* If the curve fitting function has not converged after the 600 iterations, it will output NaN as the fitting coefficients (limitation for Beta Binomial and Zipfian distributions)
+* If the curve fitting function has not converged after a maximum of 5000 iterations, it will output NaN as the fitting coefficients (limitation for Beta Binomial and Zipfian distributions)
 * Can be slow to append element to a python list, as the list is changing size after each element is added
