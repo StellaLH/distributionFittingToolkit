@@ -7,7 +7,7 @@ Takes plain-text input file containing a single integer on each line and fits th
 A summary of the goodness-of-fit metrics (chi-square, R-square, RMSE, Kolmogorov-Smirnov) are displayed for each fit, along with general statistics of the input integer data and plot of the distribution and fits, along with teh fitting parameters for each distribution.
 
 # How to use function (example)
-[stats,dists,fit] = distributionFitting(filename,printResults,plotResults)
+[stats, dists, fit] = distributionFitting(filename, printResults, plotResults)
 
 # Input arguments
 filename: string of filename (and path) containing integer data
