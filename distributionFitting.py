@@ -164,7 +164,7 @@ def distributionFitting(filename,printResults,plotResults):
     
     # BBD
     try:
-        b1,b2 = curve_fit(betaBinom,xs,p,bounds=((0,0),(1000,1000)))
+        b1,b2 = curve_fit(betaBinom,xs,p,bounds=((0,0),(1000,1000)),maxfev=5000)
     except: # if unable to optimise fit to Beta Binomial Distribution
         b1 = [np.nan]*2
         print("Could not optimize Beta Binomial fit")
@@ -173,7 +173,7 @@ def distributionFitting(filename,printResults,plotResults):
     
     # ZD
     try:
-        z1,z2 = curve_fit(zipfDist,xs,p)
+        z1,z2 = curve_fit(zipfDist,xs,p,maxfev=5000)
     except: # if unable to optimise fit to Zipfian Distribution
         z1 = [np.nan]
         print("Could not optimize Zipfian fit")
