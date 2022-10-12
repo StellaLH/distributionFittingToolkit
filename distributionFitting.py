@@ -20,13 +20,17 @@ INPUTS:
     
 OUTPUTS:
     [stats,dists,fit] = distributionFitting(filename,printResults,plotResults)
-    stats ==> 1x5 pandas data frame containing mean, standard deviation, 
+    stats ==> 1x5 pandas data frame/array containing mean, standard deviation, 
               range, variance and inter-quartile range of integer data
-    dists ==> 4x3 pandas data frame containing chi-square, R-square, RMSE 
+    dists ==> 4x3 pandas data frame/array containing chi-square, R-square, RMSE 
               and Kolmogorov-Smirnov metrics, for fittings integer
               distributions to the Discrete Uniform Distribution (DUD),
               Beta Binomial Distribution (BBD) and Zipfian Distribution (ZD)
-    fit ==>  1x3 fitting parameters a,b,c from BBD and ZD, defined in METHODS
+    fit ==>  1x3 pandas data frame/array fitting parameters a,b,c from BBD and 
+             ZD, defined in METHODS
+    
+    NOTE: Outputs can be structured as pandas data frames or arrays, simply 
+    comment out appropriately on lines 329/330
               
 METHODS:
     * Find frequency distribution of integer data [fr]
@@ -180,6 +184,7 @@ def distributionFitting(filename,printResults,plotResults):
         pass
     
     fittingParams = [b1[0],b1[1],z1[0]] # returned by function (see end)
+    df_fittingParams = pd.DataFrame({"a": [b1[0]], "b":[b1[1]], "c":[z1[0]]})
     #--------------------------------------------------------------------------
     ## Goodness-of-fit metrics
     
@@ -324,7 +329,7 @@ def distributionFitting(filename,printResults,plotResults):
     
     
     ## comment as required 
-    # out = [df_stats, df_dists, fittingParams] # output as arrays
-    out = [basicStats, cell_data, fittingParams] # output as pandas data frames
+    out = [df_stats, df_dists, df_fittingParams] # output as pandas data frames
+    # out = [basicStats, cell_data, fittingParams] # output as arrays
 
     return out
