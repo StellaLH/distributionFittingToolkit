@@ -1,6 +1,17 @@
 # distributionFittingToolbox
 Fit distributions to univariate integer data and use goodness-of-fit metric to compare the performance of each distribution
 
+# Files
+1. distributionFitting.py: Python script, detailed outline below. Script contains a function, distributionFitting(filename,printResults,plotResults), which fits 3 different distributions to input integer data from a plain-text file
+
+2. example.py: Python script showing an example use of the distributedFitting function
+
+3. exampleInput.txt: Example plain-text file of integer data used by the script
+
+4. exampleFigure.png: Output plot of example.py
+
+5. examplePrint.txt: Console output of example.py
+
 # Description
 Takes plain-text input file containing a single integer on each line and fits the dicrete uniform, beta binomial and zipfian distributions to data distribution. 
 
