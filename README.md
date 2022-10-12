@@ -115,3 +115,18 @@ Given observed data, O, and expected data (fit), E
 # Limitations
 * It can be slow and memory intensive to load all the data from the plain-text file if it is large
 * If the curve fitting function has not converged after a maximum of 5000 iterations, it will output NaN as the fitting coefficients (limitation for Beta Binomial and Zipfian distributions)
+
+# Design Choices
+* This function uses Python's curve_fit functio from scipy.optimize, which finds the optimal fitting parameters of a function to data following a nonlinear elast squares method. This function is fast, reliable and also outputs a covariance matrix of the fitted parameters, which can be used for additional statistics of the fit. This could be used in a future goodness-of-fit metric (given by b2 and z2 in distributionFitting.py)
+
+* The maximum number of iterations in optimising the fittings is set to 5000, as this is larger than the default and should improve the chances of finding the global minimum and avoid settling in a local minimum
+
+* The chi-square and K-S parameters are chosen as goodness-of-fit metrics as they are commonly used in statistics of discrete data specifically to decide if a sample of data has been drawn from a specific distribution
+
+* The R-square parameter (coefficient fo determination) is also commonly used and gives a measure of the varience between the observed data and a distribution. This is commonly used in finance and investing with regression models
+
+* RMSE gives the mean distance between the observed data and the distribution. This is comonly used in scientific research as a metric of how well a theoretical model matches the observed data
+
+* This function gives the user the flexibility of printing or plotting the results, as well as returning the integer statistics, goodness-of-fit metrics and optimised fitting parameters as either a pandas data frame or an array, making it a versitile function for a variety of applications
+
+* The way the code is split into sections means that it is simple to add in additional or different fitting distributions, where each distribution is defined as a function and the fitting is performed in the following section. The same applied if the user wishes to change the goodness-of-fit parameters in the code
