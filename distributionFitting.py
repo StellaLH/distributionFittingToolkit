@@ -332,4 +332,4 @@ def distributionFitting(filename,printResults,plotResults):
     out = [df_stats, df_dists, df_fittingParams] # output as pandas data frames
     # out = [basicStats, cell_data, fittingParams] # output as arrays
 
-    return out
+    return out 
