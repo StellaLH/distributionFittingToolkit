@@ -24,6 +24,7 @@ A summary of the goodness-of-fit metrics (chi-square, R-square, RMSE, Kolmogorov
 
 # How to use function (example)
 [stats, dists, fit] = distributionFitting(filename, printResults, plotResults)
+see example.py for a detailed example
 
 # Input arguments
 filename: string of filename (and path) containing integer data
