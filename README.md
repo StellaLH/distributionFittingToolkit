@@ -26,7 +26,7 @@ output[2] fit:  1x3 pandas data frame/array fitting parameters a,b,c from BBD an
 NOTE: Outputs can be structured as pandas data frames or arrays, simply comment out appropriately on lines 329/330.
  
 # Structure/method of code
-The structure of the code was chosen to split the different tasks into sections. This makes it easier for the user to understand what the scipt is doing and allows the user to easily add new distributions or goodness-of-fit parameters as they desire.
+The structure of the code was chosen to split the different tasks into sections. This makes it easier for the user to understand what the script is doing and allows the user to easily add new distributions or goodness-of-fit parameters as they desire.
 
 * Find frequency distribution of integer data [fr]
 
