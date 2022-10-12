@@ -116,7 +116,7 @@ Given observed data, O, and expected data (fit), E
 
 # Limitations
 * It can be slow and memory intensive to load all the data from the plain-text file if it is large
-* If the curve fitting function has not converged after a maximum of 5000 iterations, it will output NaN as the fitting coefficients (limitation for Beta Binomial and Zipfian distributions)
+* If the curve fitting function has not converged after a maximum of 5000 iterations, it will output NaN as the fitting parameters (limitation for Beta Binomial and Zipfian distributions)
 
 # Design Choices
 * This function uses Python's curve_fit functio from scipy.optimize, which finds the optimal fitting parameters of a function to data following a nonlinear elast squares method. This function is fast, reliable and also outputs a covariance matrix of the fitted parameters, which can be used for additional statistics of the fit. This could be used in a future goodness-of-fit metric (given by b2 and z2 in distributionFitting.py)
