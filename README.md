@@ -17,11 +17,13 @@ printResults: Boolean value (True/False), True prints results in console
 plotResults: Boolean vale (True/False), True plots results
 
 # Output
-output[0] stats: 1x5 pandas data frame containing mean, standard deviation, range, variance and inter-quartile range of integer data
+output[0] stats: 1x5 pandas data frame/array containing mean, standard deviation, range, variance and inter-quartile range of integer data
 
-output[1] dists: 4x3 pandas data frame containing chi-square, R-square, RMSE and Kolmogorov-Smirnov metrics, for fittings integer distributions to the Discrete Uniform Distribution (DUD), Beta Binomial Distribution (BBD) and Zipfian Distribution (ZD)
+output[1] dists: 4x3 pandas data frame/array containing chi-square, R-square, RMSE and Kolmogorov-Smirnov metrics, for fittings integer distributions to the Discrete Uniform Distribution (DUD), Beta Binomial Distribution (BBD) and Zipfian Distribution (ZD)
 
-output[2] fit:  1x3 fitting parameters a,b,c from BBD and ZD, defined in METHODS
+output[2] fit:  1x3 pandas data frame/array fitting parameters a,b,c from BBD and ZD, defined in METHODS
+
+NOTE: Outputs can be structured as pandas data frames or arrays, simply comment out appropriately on lines 329/330.
  
 # Structure/method of code
 The structure of the code was chosen to split the different tasks into sections. This makes it easier for the user to understand what the scipt is doing and allows the user to easily add new distributions or goodness-of-fit parameters as they desire.
@@ -53,22 +55,25 @@ The structure of the code was chosen to split the different tasks into sections.
 Given observed data, O, and expected data (fit), E
 
 * chi-square
+    - see https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/chi-square-goodness-of-fit-test/
     - Used to test if a sample of data came from a specific ditribution
     - X^2 = sum_{i=1}^N (O_i - E_i)^2 / E_i
     - small chi = more likely to come from specific distribution
     
-* R-square
+* R-square (coefficient of determination)
+    - see https://www.scribbr.com/statistics/coefficient-of-determination/
     - Statistical measure of fit, indicate how much of variation of a dependent variable is explined by the indeendent variable
     - R^2 = 1 - (sum_{i=1}^N (O_i - E_i)^2)/(sum_{i=1}^N (O_i - mean(O))^2)
     - R^2 = 1 --> all variation of y-axis is account for by x-axis
     
 *  Root mean square error (RMSE)
+    - see https://www.statisticshowto.com/probability-and-statistics/regression-analysis/rmse-root-mean-square-error/
     - Measure of distance between observed and predicted model
     - RMSE = sqrt(1/N * sum_{i = 1}^N (O_i - E_i)^2)
     - small RMSE = smaller distance between observed and fitted data
     
 * Kolmogorov-Smirnov (K-S)
-    - see: 
+    - see https://www.statisticshowto.com/kolmogorov-smirnov-test/
     - Used with a sample from a population of an unknown distribution
     - FO: cumulative distribution of O
     - FE: cumulative distribution of E
