@@ -132,3 +132,5 @@ Given observed data, O, and expected data (fit), E
 * This function gives the user the flexibility of printing or plotting the results, as well as returning the integer statistics, goodness-of-fit metrics and optimised fitting parameters as either a pandas data frame or an array, making it a versatile function for a variety of applications
 
 * The way the code is split into sections means that it is simple to add in additional or different fitting distributions, where each distribution is defined as a function and the fitting is performed in the following section. The same applied if the user wishes to change the goodness-of-fit parameters in the code
+
+* The try/except blocks around the curve fitting of each distribution allow the function to continue, even if an optimal fitting is not found
